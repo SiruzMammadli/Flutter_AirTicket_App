@@ -1,3 +1,4 @@
+import 'package:book_tickets/components/hotel_component.dart';
 import 'package:book_tickets/components/ticket_component.dart';
 import 'package:book_tickets/utils/app_styles.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
@@ -101,7 +102,41 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 15),
-          TicketComponent(),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.only(left: 20),
+            child: Row(
+              children: const [
+                TicketComponent(),
+                TicketComponent(),
+              ],
+            ),
+          ),
+          const SizedBox(height: 15),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Hotels",
+                  style: Styles.headLineStyle2,
+                ),
+                InkWell(
+                  onTap: (){
+                    print("You are tapped");
+                  },
+                  child: Text(
+                    "View all",
+                    style:
+                    Styles.textStyle.copyWith(color: Styles.primaryColor),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 15),
+          const HotelComponent(),
         ],
       ),
     );
